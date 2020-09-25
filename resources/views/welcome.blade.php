@@ -36,7 +36,7 @@
 
             .top-right {
                 position: absolute;
-                right: 10px;
+                right: 4px;
                 top: 18px;
             }
 
@@ -57,6 +57,11 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+            }
+
+            .img-fluid img{
+                width: 17%;
+                height: 17%;
             }
 
             .m-b-md {
@@ -81,6 +86,9 @@
             @endif
 
             <div class="content">
+                <div class="img-fluid">
+                    <img src="{{asset('assets/images/ebenezer.jpg')}}" alt="" title="ebenezer">
+                </div>
                 <div class="title m-b-md">
                     COMPLEXE SCOLAIRE EBEN EZER
                 </div>
