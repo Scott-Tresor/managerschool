@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title',"Ebenezer")
+@section('title',"Edition du profil de  {{ $user->name }}")
 
 @section('content')
     <div class="main-panel">
@@ -9,7 +9,8 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" method="post" action="{{ route('admin.users.store') }}">
+                            <form class="forms-sample" method="POST" action="{{ route('admin.users.update', $user) }}">
+                                @method("PATCH")
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
@@ -21,7 +22,7 @@
                                                 id="exampleInputName1"
                                                 placeholder="Name"
                                                 name="name"
-                                                value="{{ old('name') }}"
+                                                value="{{ $user->name }}"
                                             >
                                         </div>
                                     </div>
@@ -34,7 +35,7 @@
                                                 id="exampleInputEmail3"
                                                 placeholder="Email"
                                                 name="email"
-                                                value="{{ old('email') }}"
+                                                value="{{ $user->email }}"
                                             >
                                         </div>
                                     </div>
@@ -49,7 +50,7 @@
                                                 id="fonction"
                                                 placeholder="fonction"
                                                 name="fonction"
-                                                value="{{ old('fonction') }}"
+                                                value="{{ $user->fonction }}"
                                             >
                                         </div>
                                     </div>
@@ -62,12 +63,11 @@
                                                 id="phones"
                                                 placeholder="phone"
                                                 name="phone"
-                                                value="{{ old('phones') }}"
+                                                value="{{ $user->phone }}"
                                             >
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -78,7 +78,7 @@
                                                 id="adresse"
                                                 placeholder="Adresse"
                                                 name="adresse"
-                                                value="{{ old('adresse') }}"
+                                                value="{{ $user->adresse }}"
                                             >
                                         </div>
                                     </div>
@@ -87,24 +87,15 @@
                                             <label for="exampleSelectGender">Role</label>
                                             <select class="form-control" id="exampleSelectGender">
                                                 @foreach($roles as $role)
-                                                    <option class="text-black" id="{{ $role->id }}">{{ $role->name }}</option>
+                                                    <option class="text-black">
+                                                        {{ $role->name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">Mot de passe</label>
-                                    <input
-                                        type="password"
-                                        class="form-control {{ $errors->first('password') ? 'is-invalid' : '' }}"
-                                        id="password"
-                                        placeholder="password"
-                                        name="password"
-                                        value="{{ old('password') }}"
-                                    >
-                                </div>
-                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                <button type="submit" class="btn btn-primary mr-2">Mettre a jours</button>
                             </form>
                         </div>
                     </div>

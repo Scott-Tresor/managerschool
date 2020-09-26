@@ -51,10 +51,15 @@
                                                     {{ $users->email }}
                                                 </td>
                                                 <td>
-
+                                                    @foreach($users->roles as $userRole)
+                                                        <p class="badge @if($userRole->name === 'admin') badge-danger @else badge-primary  @endif">
+                                                            {{ $userRole->name }}
+                                                        </p>
+                                                    @endforeach
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('admin.users.show', $users->id ) }}" type="button" class="btn btn-outline-primary">Editer</a>
+                                                    <a href="{{ route('admin.users.show', $users->id ) }}" type="button" class="btn btn-outline-primary">Voir</a>
+                                                    <a href="{{ route('admin.users.edit', $users->id ) }}" type="button" class="btn btn-outline-warning">Editer</a>
                                                     <form action="" style="display: none">
                                                         @csrf
                                                     </form>

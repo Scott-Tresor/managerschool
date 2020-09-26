@@ -74,8 +74,12 @@
                                     <td>
                                         {{ $users->email }}
                                     </td>
-                                    <td>
-
+                                    <td class="text-center">
+                                        @foreach($users->roles as $userRole)
+                                            <p class="badge @if($userRole->name === 'admin') badge-danger @else badge-primary  @endif">
+                                                {{ $userRole->name }}
+                                            </p>
+                                        @endforeach
                                     </td>
                                     <td>
                                         <a href="{{ route('admin.users.show', $users->id ) }}" type="button" class="btn btn-outline-primary">Editer</a>

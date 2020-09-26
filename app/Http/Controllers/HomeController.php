@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\User;
 use Illuminate\Http\Response;
 
@@ -15,13 +16,20 @@ use Illuminate\Http\Response;
 class HomeController extends Controller
 {
     /**
+     * @var Role
+     * @author scotttresor scotttresor@gmail.com
+     */
+    private $role;
+
+    /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Role $role)
     {
         $this->middleware('auth');
+        $this->role = $role;
     }
 
     /**
@@ -30,6 +38,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('home')->with('user', $user);
+        $role = $this->role::all();
+        return view('home', compact('user', 'role'));
     }
 }
