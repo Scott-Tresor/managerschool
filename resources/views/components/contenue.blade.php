@@ -78,7 +78,10 @@
 
                                     </td>
                                     <td>
-                                        <a href="" type="button" class="btn btn-outline-primary">Editer</a>
+                                        <a href="{{ route('admin.users.show', $users->id ) }}" type="button" class="btn btn-outline-primary">Editer</a>
+                                        <form action="" style="display: none">
+                                            @csrf
+                                        </form>
                                         <button type="button" class="btn btn-outline-secondary">Supprimer</button>
                                     </td>
                                 </tr>

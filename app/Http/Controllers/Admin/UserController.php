@@ -26,7 +26,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $user = User::all();
+        return view('admin.index')->with('user', $user);
     }
 
     /**
@@ -34,7 +35,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return  view('admin.create');
     }
 
     /**
@@ -49,21 +50,19 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
+     * @param User $user
      * @return Response
      */
     public function show(User $user)
     {
-        //
+        return  view('admin.show', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
-     * @return Response
+     * @param User $user
+     * @return void
      */
     public function edit(User $user)
     {
@@ -74,7 +73,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param User $user
      * @return Response
      */
     public function update(Request $request, User $user)
@@ -85,7 +84,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param User $user
      * @return Response
      */
     public function destroy(User $user)

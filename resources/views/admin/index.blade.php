@@ -1,89 +1,70 @@
 @extends('layouts.app')
 
+@section('title', 'Liste des utilisateurs de')
 @section('content')
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
+                <div class="col-md-12 grid-margin">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="font-weight-bold mb-0">LISTE DE NOS UTILISATEURS</h4>
+                        </div>
+                        <div>
+                            <a href="{{ route('admin.users.create') }}"  class="btn btn-primary btn-icon-text btn-rounded">
+                                <i class="ti-clipboard btn-icon-prepend"></i> Cree une nouvel utilisateur
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" method="post" action="{{ route('admin.users.create') }}">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="exampleInputName1">username</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="exampleInputName1"
-                                        placeholder="Name"
-                                        name="name"
-                                        value=""
-                                    >
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail3">Email</label>
-                                    <input
-                                        type="email"
-                                        class="form-control"
-                                        id="exampleInputEmail3"
-                                        placeholder="Email"
-                                        name="email"
-                                        value=""
-                                    >
-                                </div>
-                                <div class="form-group">
-                                    <label for="fonction">fonction</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="fonction"
-                                        placeholder="fonction"
-                                        name="fonction"
-                                        value=""
-                                    >
-                                </div>
-                                <div class="form-group">
-                                    <label for="phones">phone</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="phones"
-                                        placeholder="phone"
-                                        name="phone"
-                                        value=""
-                                    >
-                                </div>
-                                <div class="form-group">
-                                    <label for="adresse">adresse</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="adresse"
-                                        placeholder="Adresse"
-                                        name="adresse"
-                                        value=""
-                                    >
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleSelectGender">Role</label>
-                                    <select class="form-control" id="exampleSelectGender">
-                                        <option>ROLE_USER</option>
-                                        <option>ROLE_ADMIN</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="password"
-                                        placeholder="Location"
-                                        name="password"
-                                        value=""
-                                    >
-                                </div>
-                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                            </form>
+                            <h4 class="card-title">Utilisateurs</h4>
+                            <div class="table-responsive pt-3">
+                                <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                nom
+                                            </th>
+                                            <th>
+                                                email
+                                            </th>
+                                            <th>
+                                                role
+                                            </th>
+                                            <th>
+                                                Actions
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($user as $users)
+                                            <tr>
+                                                <td>
+                                                    {{ $users->name }}
+                                                </td>
+                                                <td>
+                                                    {{ $users->email }}
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('admin.users.show', $users->id ) }}" type="button" class="btn btn-outline-primary">Editer</a>
+                                                    <form action="" style="display: none">
+                                                        @csrf
+                                                    </form>
+                                                    <button type="button" class="btn btn-outline-secondary">Supprimer</button>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                            </div>
                         </div>
                     </div>
                 </div>
