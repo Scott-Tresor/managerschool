@@ -1,12 +1,6 @@
 @if(Auth::user())
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.users.index') }}">
-                <i class="ti-shield menu-icon"></i>
-                <span class="menu-title">Dashboard</span>
-            </a>
-        </li>
+        <ul class="nav">
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.users.index') }}">
                 <i class="ti-layout-list-post menu-icon"></i>
@@ -32,7 +26,5 @@
             </a>
         </li>
     </ul>
-</nav>
-@else
-
+    </nav>
 @endif

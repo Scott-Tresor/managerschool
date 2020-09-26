@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 
@@ -18,12 +19,12 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
+     * @param User $user
      * @return Renderable
      */
     public function index()
     {
-        return view('home');
+        $user = User::all();
+        return view('home')->with('user', $user);
     }
 }

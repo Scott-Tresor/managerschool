@@ -1,6 +1,5 @@
-
-        <div class="row">
-            <div class="col-md-3 grid-margin stretch-card">
+<div class="row">
+    <div class="col-md-3 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <p class="card-title text-md-center text-xl-left">Eleves inscrit</p>
@@ -11,7 +10,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 grid-margin stretch-card">
+    <div class="col-md-3 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <p class="card-title text-md-center text-xl-left">Eleves en ordre</p>
@@ -22,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 grid-margin stretch-card">
+    <div class="col-md-3 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <p class="card-title text-md-center text-xl-left">Downloads</p>
@@ -33,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 grid-margin stretch-card">
+    <div class="col-md-3 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <p class="card-title text-md-center text-xl-left">Returns</p>
@@ -44,4 +43,51 @@
                     </div>
                 </div>
             </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Utilisateurs</h4>
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    nom
+                                </th>
+                                <th>
+                                    email
+                                </th>
+                                <th>
+                                    role
+                                </th>
+                                <th>
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($user as $users)
+                                <tr>
+                                    <td>
+                                        {{ $users->name }}
+                                    </td>
+                                    <td>
+                                        {{ $users->email }}
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <a href="" type="button" class="btn btn-outline-primary">Editer</a>
+                                        <button type="button" class="btn btn-outline-secondary">Supprimer</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
+

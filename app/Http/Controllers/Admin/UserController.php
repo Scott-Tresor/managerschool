@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -7,11 +9,19 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/***
+ * Class UserController
+ * @package App\Http\Controllers\Admin
+ * @author scotttresor scotttresor@gmail.com
+ */
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
-     * Display a listing of the resource.
-     *
      * @return Response
      */
     public function index()
@@ -20,8 +30,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
