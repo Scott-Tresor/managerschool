@@ -1,11 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
+/**
+ * Class HomeController
+ * @package App\Http\Controllers
+ * @author scotttresor scotttresor@gmail.com
+ */
 class HomeController extends Controller
 {
     /**
@@ -19,8 +25,7 @@ class HomeController extends Controller
     }
 
     /**
-     * @param User $user
-     * @return Renderable
+     * @return Response
      */
     public function index()
     {

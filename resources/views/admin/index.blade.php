@@ -7,7 +7,7 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" method="post" action="{{ route('admin.user.create') }}">
+                            <form class="forms-sample" method="post" action="{{ route('admin.users.create') }}">
                                 @csrf
                                 <div class="form-group">
                                     <label for="exampleInputName1">username</label>
