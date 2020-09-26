@@ -15,10 +15,10 @@
 
     @yield('contenue')
 
-    <script src="{{asset('asset/vendors/base/vendor.bundle.base.js')}}"></script>
-    <script src="{{asset('asset/js/off-canvas.js')}}"></script>
-    <script src="{{asset('asset/js/hoverable-collapse.js')}}"></script>
-    <script src="{{asset('asset/js/template.js')}}"></script>
-    <script src="{{asset('asset/js/todolist.js')}}"></script>
+    <script src="{{asset('assets/vendors/base/vendor.bundle.base.js')}}"></script>
+    <script src="{{asset('assets/js/off-canvas.js')}}"></script>
+    <script src="{{asset('assets/js/hoverable-collapse.js')}}"></script>
+    <script src="{{asset('assets/js/template.js')}}"></script>
+    <script src="{{asset('assets/js/todolist.js')}}"></script>
 </body>
 </html>
