@@ -22,7 +22,7 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Utilisateurs</h4>
+                            <h4 class="card-title">Liste des eleves inscrits</h4>
                             <div class="table-responsive pt-3">
                                 <table class="table table-bordered">
                                     <thead>
@@ -45,23 +45,28 @@
                                     @foreach($student as $users)
                                         <tr>
                                             <td>
-                                                {{ $users->name }}
+                                                {{ $users->username }}
                                             </td>
                                             <td>
-                                                {{ $users->email }}
+                                                {{ $users->firstname }}
                                             </td>
                                             <td>
 
                                             </td>
-                                            <td>
-                                                <a href="{{ route('admin.users.show', $users->id ) }}" type="button" class="btn btn-outline-primary">Voir</a>
-                                                <a href="{{ route('admin.users.edit', $users->id ) }}" type="button" class="btn btn-outline-warning">Editer</a>
+                                            <td class="text-center mt-0 mb-0">
+                                                <a href="{{ route('admin.users.show', $users->id ) }}"  class="btn btn-outline-primary">
+                                                    <i class=" ti-new-window btn-icon-prepend"></i> Voir
+                                                </a>
+                                                <a href="{{ route('admin.users.edit', $users->id ) }}"  class="btn btn-outline-warning">
+                                                    <i class="ti-pencil btn-icon-prepend"></i> Editer
+                                                </a>
                                                 <form onsubmit="return confirm('Voulez vous supprimer')" action="{{ route('admin.users.destroy', $users->id) }}" method="post" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-outline-secondary">Supprimer</button>
+                                                    <button type="submit" class="btn btn-outline-secondary">
+                                                        <i class="ti-trash  btn-icon-prepend"></i> Supprimer
+                                                    </button>
                                                 </form>
-
                                             </td>
                                         </tr>
                                     @endforeach

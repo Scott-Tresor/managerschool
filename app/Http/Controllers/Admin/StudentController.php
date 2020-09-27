@@ -10,7 +10,6 @@ use App\Http\Controllers\Controller;
 use App\Option;
 use App\Student;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Http\Client\Request;
 use Illuminate\View\View;
 
 /***
@@ -56,7 +55,8 @@ class StudentController extends Controller
     public function index()
     {
         $student  = $this->student::all();
-        return view('admin.student.index', compact('student'));
+        $classe = $this->classe::all();
+        return view('admin.student.index', compact('student', 'classe'));
     }
 
     /***
@@ -69,9 +69,23 @@ class StudentController extends Controller
         return  view('admin.student.create', compact('option', 'class'));
     }
 
-    public  function store(Request $request)
+    public  function store()
     {
+        $request = request()->validate([
+            'username' =>['required'],
+            'postname' =>['required'],
+            'firstname' => ['required'],
+            'tutairename' => ['required'],
+            'phonenumber' => ['required', 'integer'],
+            'age' => ['required', 'date'],
+            'adresse' => ['required'],
+            'nationality' => ['required'],
+            'option_id' => ['required', 'integer'],
+            'classe_id' => ['required', 'integer'],
+        ]);
+        Student::create($request);
 
+        return redirect()->route('admin.student.index');
     }
 
 

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -53,5 +54,13 @@ class User extends Authenticatable
     public  function  receiveds()
     {
         return $this->hasMany('App\User');
+    }
+
+    /***
+     * @return Model|BelongsToMany
+     */
+    public function  isAdmin()
+    {
+        return $this->roles()->where('name', 'admin')->first();
     }
 }

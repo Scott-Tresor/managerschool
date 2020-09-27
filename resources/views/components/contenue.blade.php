@@ -83,12 +83,18 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.users.show', $users->id ) }}" type="button" class="btn btn-outline-primary">Editer</a>
+                                        <a href="{{ route('admin.users.show', $users->id ) }}"  class="btn btn-outline-primary">
+                                            <i class=" ti-new-window btn-icon-prepend"></i> Voir
+                                        </a>
+                                        @can('delete-user')
                                         <form onsubmit="return confirm('Voulez vous supprimer')" action="{{ route('admin.users.destroy', $users->id) }}" method="post" class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-outline-secondary">Supprimer</button>
+                                            <button type="submit" class="btn btn-outline-secondary">
+                                                <i class="ti-trash  btn-icon-prepend"></i> Supprimer
+                                            </button>
                                         </form>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

@@ -12,12 +12,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Student extends Model
 {
+
+    protected $guarded = [];
     /***
      * @return BelongsTo
      */
     public  function classes()
     {
-        return $this->belongsTo('App\Classe');
+        return $this->belongsTo(Classe::class);
     }
 
     /**

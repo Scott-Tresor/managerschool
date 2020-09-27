@@ -78,17 +78,17 @@ class UserController extends Controller
             'phone' => ['required'],
             'adresse' => ['required'],
             'password' => ['required'],
+            'role_id' => ['required', 'integer']
         ]);
-        $person = User::create([
+        User::create([
             'name' => request('name'),
             'email' => request('email'),
             'fonction' => request('fonction'),
             'phone' => request('phone'),
             'adresse' => request('adresse'),
+            'role_id' => request('role_id'),
             'password' => Hash::make(request('password')),
         ]);
-
-        $person->roles()->create($request);
 
         return redirect()->route('admin.users.index');
     }
@@ -124,16 +124,15 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $requrest = $request->validate([
+        $request = $request->validate([
             'name' =>['required'],
             'email' =>['required', 'email'],
             'fonction' => ['required'],
             'phone' => ['required'],
             'adresse' => ['required'],
+            'role_id' => ['required', 'integer']
         ]);
-
-        $user->roles()->sync($requrest->role);
-
+        $user->update($request);
         return redirect()->route('admin.user.index');
     }
 

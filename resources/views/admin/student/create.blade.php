@@ -14,27 +14,27 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="exampleInputName1">username</label>
+                                            <label for="exampleInputName1">Nom</label>
                                             <input
                                                 type="text"
-                                                class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}"
+                                                class="form-control {{ $errors->first('username') ? 'is-invalid' : '' }}"
                                                 id="exampleInputName1"
-                                                placeholder="Name"
-                                                name="name"
-                                                value="{{ old('name') }}"
+                                                placeholder="username"
+                                                name="username"
+                                                value="{{ old('username') }}"
                                             >
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail3">Email</label>
+                                            <label for="exampleInputEmail3">Post nom</label>
                                             <input
-                                                type="email"
-                                                class="form-control {{ $errors->first('email') ? 'is-invalid' : '' }}"
+                                                type="text"
+                                                class="form-control {{ $errors->first('postname') ? 'is-invalid' : '' }}"
                                                 id="exampleInputEmail3"
-                                                placeholder="Email"
-                                                name="email"
-                                                value="{{ old('email') }}"
+                                                placeholder="Post nom"
+                                                name="postname"
+                                                value="{{ old('postname') }}"
                                             >
                                         </div>
                                     </div>
@@ -42,27 +42,28 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="fonction">fonction</label>
+                                            <label for="firstname">Prenom</label>
                                             <input
                                                 type="text"
-                                                class="form-control {{ $errors->first('fonction') ? 'is-invalid' : '' }}"
-                                                id="fonction"
-                                                placeholder="fonction"
-                                                name="fonction"
-                                                value="{{ old('fonction') }}"
+                                                class="form-control {{ $errors->first('firstname') ? 'is-invalid' : '' }}"
+                                                id="firstname"
+                                                placeholder="firstname"
+                                                name="firstname"
+                                                value="{{ old('firstname') }}"
                                             >
                                         </div>
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="phones">phone</label>
+                                            <label for="age">Date de naissance</label>
                                             <input
-                                                type="text"
-                                                class="form-control {{ $errors->first('phone') ? 'is-invalid' : '' }}"
-                                                id="phones"
-                                                placeholder="phone"
-                                                name="phone"
-                                                value="{{ old('phones') }}"
+                                                type="date"
+                                                class="form-control {{ $errors->first('age') ? 'is-invalid' : '' }}"
+                                                id="age"
+                                                placeholder="age"
+                                                name="age"
+                                                value="{{ old('age') }}"
                                             >
                                         </div>
                                     </div>
@@ -71,12 +72,42 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="adresse">adresse</label>
+                                            <label for="phones">Nom du tutaire</label>
+                                            <input
+                                                type="text"
+                                                class="form-control {{ $errors->first('tutairename') ? 'is-invalid' : '' }}"
+                                                id="tutairename"
+                                                placeholder="tutairename"
+                                                name="tutairename"
+                                                value="{{ old('tutairename') }}"
+                                            >
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phonenumber">Numero de telephone du tutaire</label>
+                                            <input
+                                                type="text"
+                                                class="form-control {{ $errors->first('phonenumber') ? 'is-invalid' : '' }}"
+                                                id="phonenumber"
+                                                placeholder="Numero du tutaire"
+                                                name="phonenumber"
+                                                value="{{ old('phonenumber') }}"
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="adresse">Adresse</label>
                                             <input
                                                 type="text"
                                                 class="form-control {{ $errors->first('adresse') ? 'is-invalid' : '' }}"
                                                 id="adresse"
-                                                placeholder="Adresse"
+                                                placeholder="Adresse de l'eleve"
                                                 name="adresse"
                                                 value="{{ old('adresse') }}"
                                             >
@@ -84,25 +115,49 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="exampleSelectGender">Role</label>
-                                            <select class="form-control" id="exampleSelectGender">
-                                                <option class="text-black">PRIMAIRE</option>
+                                            <label for="exampleSelectGender">Section</label>
+                                            <select name="option_id" class="form-control @error('option_id') is-invalid @enderror" id="exampleSelectGender">
+                                                @foreach($option as $section)
+                                                    <option class="text-black" value="{{ $section->id }}" id="{{ $section->id }}">
+                                                        {{ $section->name }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">Mot de passe</label>
-                                    <input
-                                        type="password"
-                                        class="form-control {{ $errors->first('password') ? 'is-invalid' : '' }}"
-                                        id="password"
-                                        placeholder="password"
-                                        name="password"
-                                        value="{{ old('password') }}"
-                                    >
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nationality">Nationalite du parent</label>
+                                            <input
+                                                type="text"
+                                                class="form-control {{ $errors->first('nationality') ? 'is-invalid' : '' }}"
+                                                id="nationality"
+                                                placeholder="Nationalite du parent"
+                                                name="nationality"
+                                                value="{{ old('nationality') }}"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleSelectGender">Section</label>
+                                            <select name="classe_id" class="form-control @error('classe_id') is-invalid @enderror" id="exampleSelectGender">
+                                                @foreach($class as $classe)
+                                                    <option class="text-black" id="{{ $classe->id }}" value="{{ $classe->id }}">
+                                                        {{ $classe->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+
+                                <button type="submit" class="btn btn-primary mr-2">
+                                    <i class=" ti-save  btn-icon-prepend"></i> Submit
+                                </button>
                             </form>
                         </div>
                     </div>

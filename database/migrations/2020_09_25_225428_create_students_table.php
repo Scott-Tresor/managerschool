@@ -17,13 +17,12 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->unsignedInteger('classe_id');
             $table->unsignedInteger('option_id');
-            $table->unsignedInteger('received_id');
             $table->string('username');
             $table->string('postname');
             $table->string('firstname');
             $table->string('tutairename');
-            $table->integer('phonenumber');
-            $table->integer('age');
+            $table->bigInteger('phonenumber');
+            $table->date('age');
             $table->string('adresse');
             $table->string('nationality');
             $table->timestamps();
