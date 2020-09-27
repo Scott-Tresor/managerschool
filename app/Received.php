@@ -20,6 +20,9 @@ class Received extends Model
         return $this->belongsTo('App\User');
     }
 
+    /***
+     * @return BelongsTo
+     */
     public  function  students()
     {
         return $this->belongsTo('App\Student');
