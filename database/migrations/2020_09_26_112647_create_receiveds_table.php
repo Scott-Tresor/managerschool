@@ -1,9 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/***
+ * Class CreateReceivedsTable
+ * @author scotttresor scotttresor@gmail.com
+ */
 class CreateReceivedsTable extends Migration
 {
     /**
@@ -15,11 +21,10 @@ class CreateReceivedsTable extends Migration
     {
         Schema::create('receiveds', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('student_id');
             $table->string('motifpaiement');
             $table->integer('mount');
             $table->string('period');
-            $table->dateTime('date');
             $table->timestamps();
         });
     }
