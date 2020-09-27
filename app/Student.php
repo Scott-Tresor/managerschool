@@ -19,7 +19,7 @@ class Student extends Model
      */
     public  function classes()
     {
-        return $this->belongsTo(Classe::class);
+        return $this->belongsTo('App\Classe');
     }
 
     /**
@@ -28,6 +28,12 @@ class Student extends Model
     public function  options()
     {
         return $this->belongsTo('App\Option');
+    }
+
+
+    public function  receiveds()
+    {
+        return $this->belongsTo('App\Received');
     }
 
 }

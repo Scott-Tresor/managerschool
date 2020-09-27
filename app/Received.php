@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /***
  * Class Received
@@ -12,19 +15,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Received extends Model
 {
-    /***
-     * @return BelongsTo
-     */
-    public  function  users()
-    {
-        return $this->belongsTo('App\User');
-    }
+
+    protected $guarded = [];
 
     /***
-     * @return BelongsTo
+     * @return HasMany
      */
     public  function  students()
     {
-        return $this->belongsTo('App\Student');
+        return $this->hasMany('App\Student');
     }
 }

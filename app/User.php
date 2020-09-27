@@ -48,14 +48,6 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
 
-    /**
-     * @return HasMany
-     */
-    public  function  receiveds()
-    {
-        return $this->hasMany('App\User');
-    }
-
     /***
      * @return Model|BelongsToMany
      */
