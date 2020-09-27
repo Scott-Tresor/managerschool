@@ -1,0 +1,21 @@
+langage: php
+php:
+  - '7.4'
+node:
+  - '12.16'
+
+install:
+  - make install
+
+cache:
+  directories:
+    - ./vendor
+    - ./node_modules
+
+before_script:
+  - cp .env.travis .env
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+
+script:
+  - make lint

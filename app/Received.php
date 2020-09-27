@@ -24,7 +24,7 @@ class Received extends Model
      */
     public  function  students()
     {
-        return $this->hasMany('App\Student');
+        return $this->hasMany('App\Student', 'classe_id', 'id');
     }
 
     public  function  getStudent()

@@ -51,7 +51,7 @@
                 <div class="table-responsive pt-3">
                     <table class="table table-bordered">
                         <thead>
-                            <tr>
+                            <tr class="text-center">
                                 <th>
                                     nom
                                 </th>
@@ -68,7 +68,7 @@
                         </thead>
                         <tbody>
                             @foreach($user as $users)
-                                <tr>
+                                <tr class="text-center">
                                     <td>
                                         {{ $users->name }}
                                     </td>

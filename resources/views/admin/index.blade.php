@@ -25,7 +25,7 @@
                             <h4 class="card-title">Utilisateurs</h4>
                             <div class="table-responsive pt-3">
                                 <table class="table table-bordered">
-                                        <thead>
+                                    <thead class="text-center">
                                         <tr>
                                             <th>
                                                 nom
@@ -43,7 +43,7 @@
                                         </thead>
                                         <tbody>
                                         @foreach($user as $users)
-                                            <tr>
+                                            <tr class="text-center">
                                                 <td>
                                                     {{ $users->name }}
                                                 </td>

@@ -66,6 +66,9 @@
                                                 <a href="{{ route('admin.paiement.edit', $users->id ) }}"  class="btn btn-outline-warning">
                                                     <i class="ti-pencil btn-icon-prepend"></i> Editer
                                                 </a>
+                                                <a href="{{ route('admin.paiement.edit', $users->id ) }}"  class="btn btn-outline-danger">
+                                                    <i class="ti-spray  btn-icon-prepend"></i> Imprimer
+                                                </a>
                                                 <form onsubmit="return confirm('Voulez vous supprimer')" action="{{ route('admin.student.destroy', $users->id) }}" method="post" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
