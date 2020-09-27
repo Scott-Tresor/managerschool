@@ -11,6 +11,7 @@ use App\Option;
 use App\Student;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 /***
  * Class StudentController
@@ -41,7 +42,11 @@ class StudentController extends Controller
      * @param Student $student
      * @param Option $option
      */
-    public function __construct(Classe $classe, Student $student, Option $option)
+    public function __construct(
+        Classe $classe,
+        Student $student,
+        Option $option
+    )
     {
         $this->middleware('auth');
         $this->student = $student;
@@ -85,6 +90,58 @@ class StudentController extends Controller
         ]);
         Student::create($request);
 
+        return redirect()->route('admin.student.index');
+    }
+
+    /***
+     * @param Student $student
+     * @return Factory|View
+     */
+    public  function  show(Student $student)
+    {
+        return view('admin.student.show', compact('student'));
+    }
+
+    /**
+     * @param Student $student
+     * @return void
+     */
+    public function edit(Student $student)
+    {
+        $option = $this->option::all();
+        $class = $this->classe::all();
+        return  view('admin.student.edit', compact('student', 'option', 'class'));
+    }
+
+
+    public function update(Student $student)
+    {
+
+        $request = request()->validate([
+            'username' =>['required'],
+            'postname' =>['required'],
+            'firstname' => ['required'],
+            'tutairename' => ['required'],
+            'phonenumber' => ['required', 'integer'],
+            'age' => ['required', 'date'],
+            'adresse' => ['required'],
+            'nationality' => ['required'],
+            'option_id' => ['required', 'integer'],
+            'classe_id' => ['required', 'integer'],
+        ]);
+        $student->update($request);
+
+        return redirect()->route('admin.student.index');
+    }
+
+    /**
+     * @param Student $student
+     * @return Response
+     * @throws \Exception
+     */
+    public function destroy(Student $student)
+    {
+        $student->delete();
         return redirect()->route('admin.student.index');
     }
 
