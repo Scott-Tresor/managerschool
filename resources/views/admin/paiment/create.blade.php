@@ -19,8 +19,8 @@
                                                 type="text"
                                                 class="form-control {{ $errors->first('motifpaiement') ? 'is-invalid' : '' }}"
                                                 id="exampleInputName1"
-                                                placeholder="Name"
-                                                name="name"
+                                                placeholder="motifpaiement"
+                                                name="motifpaiement"
                                                 value="{{ old('motifpaiement') }}"
                                             >
                                         </div>
@@ -45,44 +45,31 @@
                                             <label for="fonction">Moi de paiement</label>
                                             <input
                                                 type="month"
-                                                class="form-control {{ $errors->first('periode') ? 'is-invalid' : '' }}"
-                                                id="periode"
-                                                placeholder="periode"
-                                                name="periode"
-                                                value="{{ old('periode') }}"
+                                                class="form-control {{ $errors->first('period') ? 'is-invalid' : '' }}"
+                                                id="period"
+                                                placeholder="period"
+                                                name="period"
+                                                value="{{ old('period') }}"
                                             >
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="date">date</label>
-                                            <input
-                                                type="date"
-                                                class="form-control {{ $errors->first('date') ? 'is-invalid' : '' }}"
-                                                id="date"
-                                                placeholder="date"
-                                                name="date"
-                                                value="{{ old('date') }}"
-                                            >
+                                            <label for="exampleSelectGender">Eleves</label>
+                                            <select class="form-control" name="student_id" id="exampleSelectGender">
+                                                @foreach($student as $eleves)
+                                                    <option class="text-black" id="{{ $eleves->id }}" value="{{ $eleves->id }}">{{ $eleves->username }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="exampleSelectGender">Eleves</label>
-                                            <select class="form-control" name="role_id" id="exampleSelectGender">
-                                                @foreach($student as $roles)
-                                                    <option class="text-black" id="{{ $roles->id }}" value="{{ $roles->id }}">{{ $roles->username }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="exampleSelectGender">Classe</label>
-                                            <select class="form-control" name="role_id" id="exampleSelectGender">
+                                            <select class="form-control" name="classe_id" id="exampleSelectGender">
                                                 @foreach($class as $role)
                                                     <option class="text-black" id="{{ $role->id }}" value="{{ $role->id }}">{{ $role->name }}</option>
                                                 @endforeach

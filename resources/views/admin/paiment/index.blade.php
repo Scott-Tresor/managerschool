@@ -28,13 +28,16 @@
                                     <thead>
                                     <tr>
                                         <th class="text-center">
-                                            nom
+                                            MOTIF  DE PAIEMENT
                                         </th>
                                         <th class="text-center">
-                                            postnom
+                                            PERIODE DE PAIEMENT
                                         </th>
                                         <th class="text-center">
-                                            classe
+                                            MOTIF
+                                        </th>
+                                        <th class="text-center">
+                                            CLASSE
                                         </th>
                                         <th class="text-center">
                                             Actions
@@ -45,19 +48,22 @@
                                     @foreach($paiement as $users)
                                         <tr class="text-center">
                                             <td>
-                                                {{ $users->username }}
+                                                {{ $users->motifpaiement }}
                                             </td>
                                             <td>
-                                                {{ $users->firstname }}
+                                                {{ $users->period }}
+                                            </td>
+                                            <td>
+                                                {{ $users->mount }}
                                             </td>
                                             <td>
 
                                             </td>
                                             <td class="text-center mt-0 mb-0">
-                                                <a href="{{ route('admin.student.show', $users->id ) }}"  class="btn btn-outline-primary">
+                                                <a href="{{ route('admin.paiement.show', $users->id ) }}"  class="btn btn-outline-primary">
                                                     <i class=" ti-new-window btn-icon-prepend"></i> Voir
                                                 </a>
-                                                <a href="{{ route('admin.student.edit', $users->id ) }}"  class="btn btn-outline-warning">
+                                                <a href="{{ route('admin.paiement.edit', $users->id ) }}"  class="btn btn-outline-warning">
                                                     <i class="ti-pencil btn-icon-prepend"></i> Editer
                                                 </a>
                                                 <form onsubmit="return confirm('Voulez vous supprimer')" action="{{ route('admin.student.destroy', $users->id) }}" method="post" class="d-inline">
