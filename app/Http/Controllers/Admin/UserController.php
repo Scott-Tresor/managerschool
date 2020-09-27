@@ -79,7 +79,7 @@ class UserController extends Controller
             'adresse' => ['required'],
             'password' => ['required'],
         ]);
-        User::create([
+        $person = User::create([
             'name' => request('name'),
             'email' => request('email'),
             'fonction' => request('fonction'),
@@ -87,6 +87,9 @@ class UserController extends Controller
             'adresse' => request('adresse'),
             'password' => Hash::make(request('password')),
         ]);
+
+        $person->roles()->create($request);
+
         return redirect()->route('admin.users.index');
     }
 
@@ -135,13 +138,14 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
      * @param User $user
      * @return Response
+     * @throws \Exception
      */
     public function destroy(User $user)
     {
-        //
+        $user->roles()->detach();
+        $user->delete();
+        return redirect()->route('admin.users.index');
     }
 }

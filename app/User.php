@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -46,13 +47,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
 
-    public  function classes()
+    /**
+     * @return HasMany
+     */
+    public  function  receiveds()
     {
-        return $this->hasMany('App\Classe');
-    }
-
-    public  function options()
-    {
-        return $this->hasMany('App\Option');
+        return $this->hasMany('App\User');
     }
 }
