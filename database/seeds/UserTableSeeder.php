@@ -1,10 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Role;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+/***
+ * Class UserTableSeeder
+ * @author scotttresor scotttresor@gmail.com
+ */
 class UserTableSeeder extends Seeder
 {
     /**

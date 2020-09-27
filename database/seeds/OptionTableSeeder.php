@@ -11,6 +11,10 @@ class OptionTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Option::truncate();
+
+        \App\Option::create(['name' => 'Maternelle']);
+        \App\Option::create(['name' => 'Primaire']);
+        \App\Option::create(['name' => 'Secondaire']);
     }
 }

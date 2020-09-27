@@ -15,6 +15,7 @@ class CreateReceivedsTable extends Migration
     {
         Schema::create('receiveds', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('user_id');
             $table->string('motifpaiement');
             $table->integer('mount');
             $table->string('period');
