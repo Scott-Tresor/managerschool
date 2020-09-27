@@ -60,10 +60,12 @@
                                                 <td>
                                                     <a href="{{ route('admin.users.show', $users->id ) }}" type="button" class="btn btn-outline-primary">Voir</a>
                                                     <a href="{{ route('admin.users.edit', $users->id ) }}" type="button" class="btn btn-outline-warning">Editer</a>
-                                                    <form action="" style="display: none">
+                                                    <form onsubmit="return confirm('Voulez vous supprimer')" action="{{ route('admin.users.destroy', $users->id) }}" method="post" class="d-inline">
                                                         @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-outline-secondary">Supprimer</button>
                                                     </form>
-                                                    <button type="button" class="btn btn-outline-secondary">Supprimer</button>
+
                                                 </td>
                                             </tr>
                                         @endforeach

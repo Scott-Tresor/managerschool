@@ -16,7 +16,7 @@
                         <p class="card-title text-md-center text-xl-left">Eleves en ordre</p>
                         <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
                             <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">47033</h3>
-                            <i class="ti-user icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                            <i class="ti-face-sad  icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                         </div>
                     </div>
                 </div>
@@ -24,10 +24,10 @@
     <div class="col-md-3 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title text-md-center text-xl-left">Downloads</p>
+                        <p class="card-title text-md-center text-xl-left">Utilisateur</p>
                         <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">40016</h3>
-                            <i class="ti-agenda icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0"></h3>
+                            <i class="ti-user  icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                         </div>
                     </div>
                 </div>
@@ -35,14 +35,15 @@
     <div class="col-md-3 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title text-md-center text-xl-left">Returns</p>
+                        <p class="card-title text-md-center text-xl-left">Statistiques</p>
                         <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
                             <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">61344</h3>
                             <i class="ti-layers-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                         </div>
                     </div>
                 </div>
-            </div>
+    </div>
+
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -76,17 +77,18 @@
                                     </td>
                                     <td class="text-center">
                                         @foreach($users->roles as $userRole)
-                                            <p class="badge @if($userRole->name === 'admin') badge-danger @else badge-primary  @endif">
+                                            <p class="badge @if($userRole->name === 'admin') badge-danger @else badge-primary @endif">
                                                 {{ $userRole->name }}
                                             </p>
                                         @endforeach
                                     </td>
                                     <td>
                                         <a href="{{ route('admin.users.show', $users->id ) }}" type="button" class="btn btn-outline-primary">Editer</a>
-                                        <form action="" style="display: none">
+                                        <form onsubmit="return confirm('Voulez vous supprimer')" action="{{ route('admin.users.destroy', $users->id) }}" method="post" class="d-inline">
                                             @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-secondary">Supprimer</button>
                                         </form>
-                                        <button type="button" class="btn btn-outline-secondary">Supprimer</button>
                                     </td>
                                 </tr>
                             @endforeach
