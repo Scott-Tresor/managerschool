@@ -7,6 +7,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 
 /***
  * Class Received
@@ -25,4 +26,14 @@ class Received extends Model
     {
         return $this->hasMany('App\Student');
     }
+
+    public  function  getStudent()
+    {
+        $student = DB::table('users')
+            ->leftJoin('posts', 'users.id', '=', 'posts.user_id')
+            ->get();
+
+        return $student;
+    }
+
 }

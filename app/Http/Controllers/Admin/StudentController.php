@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Option;
 use App\Student;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 
@@ -74,6 +75,9 @@ class StudentController extends Controller
         return  view('admin.student.create', compact('option', 'class'));
     }
 
+    /**
+     * @return RedirectResponse
+     */
     public  function store()
     {
         $request = request()->validate([

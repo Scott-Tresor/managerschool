@@ -19,4 +19,5 @@ class Classe extends Model
     {
         return $this->hasMany('App\Student');
     }
+
 }
