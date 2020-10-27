@@ -1,13 +1,7 @@
 <?php
 
-declare(strict_types=1);
-
 use Illuminate\Database\Seeder;
 
-/***
- * Class DatabaseSeeder
- * @author scotttresor scotttresor@gmail.com
- */
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -17,9 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(RoleTableSeeder::class);
-        $this->call(UserTableSeeder::class);
-        $this->call(ClasseTableSeeder::class);
-        $this->call(OptionTableSeeder::class);
+        $this->call(StudentSeeder::class);
+        $this->call(ResultatTableSeeder::class);
     }
 }

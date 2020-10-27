@@ -1,6 +1,6 @@
 langage: php
 php:
-  - '7.4'
+  - '7.2'
 node:
   - '12.16'
 

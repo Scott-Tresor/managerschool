@@ -15,16 +15,22 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('classe_id');
-            $table->unsignedInteger('option_id');
             $table->string('username');
-            $table->string('postname');
-            $table->string('firstname');
-            $table->string('tutairename');
-            $table->bigInteger('phonenumber');
-            $table->date('age');
-            $table->string('adresse');
+            $table->string('prenom');
+            $table->string('sexe')->default('M');
+            $table->dateTime('birthdays');
             $table->string('nationality');
+            $table->string('phoneNumber');
+            $table->string('adress');
+            $table->string('ville');
+            $table->string('school');
+            $table->string('province');
+            $table->integer('codeExetat');
+            $table->string('option');
+            $table->dateTime('annee');
+            $table->integer('pourcent');
+            $table->string('Department');
+            $table->string('Depart');
             $table->timestamps();
         });
     }
