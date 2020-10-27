@@ -33,12 +33,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $student = $request->all();
-        dd($student);
-        Student::create($student);
-        return response()->json([
-            'message' => 'Inscription reussi avec success, Veillez passer a la banque pour payer le frais  muni de votre code barre'
-        ], 200);
+        return 'salut';
     }
 
 
